@@ -69,6 +69,11 @@ a { text-decoration: none; color: inherit; }
   src: url('fonts/parisienne.woff2') format('woff2');
   font-weight: 400; font-style: normal; font-display: swap;
 }
+@font-face {
+  font-family: 'RomauntGaolines';
+  src: url('fonts/romauntgaolines.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
 
 /* ---------- SECTION BASE ---------- */
 .section {
@@ -142,7 +147,7 @@ a { text-decoration: none; color: inherit; }
 .cover-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(160deg, #2c1810 0%, #1a0f0a 40%, #0d0806 100%);
+  background: url('gallery/bg index.webp') center/cover no-repeat;
 }
 
 .cover-bg::before {
@@ -162,41 +167,40 @@ a { text-decoration: none; color: inherit; }
 .cover-monogram {
   position: relative;
   display: inline-block;
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   margin-bottom: 24px;
+  overflow: visible;
 }
 
 .monogram-letter {
-  font-family: 'Analogue', var(--font-script);
-  font-size: 5rem;
   font-weight: 400;
   line-height: 1;
+  color: #781F20;
 }
 
 .m-h {
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-family: 'RomauntGaolines', var(--font-script);
+  font-size: 5.5rem;
+  text-align: center;
 }
 
 .m-a {
+  font-family: 'Parisienne', var(--font-accent);
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: 66%;
+  top: 56%;
   transform: translate(-50%, -50%);
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--primary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  text-align: center;
+  font-size: 6rem;
+  z-index: 2;
 }
 
 .cover-subtitle {
   font-family: var(--font-script);
   font-size: 1rem;
   font-weight: 300;
-  color: var(--gold-light);
+  color: #7C2527;
   letter-spacing: 3px;
   margin-bottom: 8px;
 }
@@ -204,7 +208,7 @@ a { text-decoration: none; color: inherit; }
 .cover-names {
   font-family: 'Aston Script', var(--font-accent);
   font-size: 2.2rem;
-  color: var(--text-light);
+  color: #7C2527;
   margin-bottom: 32px;
   font-weight: 400;
 }
@@ -212,7 +216,7 @@ a { text-decoration: none; color: inherit; }
 .cover-guest {
   font-family: var(--font-body);
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.6);
+  color: #7C2527;
   margin-bottom: 8px;
   letter-spacing: 1px;
 }
@@ -220,27 +224,29 @@ a { text-decoration: none; color: inherit; }
 .cover-guestname {
   font-family: 'Parisienne', var(--font-accent);
   font-size: 1.5rem;
-  color: var(--gold-light);
+  color: #7C2527;
   margin-bottom: 32px;
+  font-weight: 700;
 }
 
 .btn-open {
   display: inline-block;
   padding: 12px 32px;
-  border: 1px solid var(--gold);
-  color: var(--gold-light);
+  border: none;
+  color: #FFFFFF;
   font-family: var(--font-decorative);
   font-size: 0.75rem;
   letter-spacing: 3px;
   text-transform: uppercase;
-  background: transparent;
+  background-image: radial-gradient(at center center, #B44C4F 0%, #611A1C 100%);
+  border-radius: 20px;
   cursor: pointer;
   transition: all 0.4s ease;
 }
 
 .btn-open:hover {
-  background: var(--gold);
-  color: var(--bg-dark);
+  background: #7C2527;
+  color: #FFFFFF;
 }
 
 /* Cover reveal animation */
@@ -287,7 +293,7 @@ a { text-decoration: none; color: inherit; }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%);
+  background: transparent;
 }
 
 .hero-inner {
@@ -300,14 +306,17 @@ a { text-decoration: none; color: inherit; }
 .hero-monogram {
   position: relative;
   display: inline-block;
+  width: 150px;
+  height: 150px;
   margin-bottom: 16px;
+  overflow: visible;
 }
 
 .hero-title {
   font-family: var(--font-script);
   font-size: 1.2rem;
   font-weight: 300;
-  color: var(--text-light);
+  color: #7C2527;
   letter-spacing: 4px;
   margin-bottom: 8px;
   text-transform: uppercase;
@@ -316,7 +325,7 @@ a { text-decoration: none; color: inherit; }
 .hero-names {
   font-family: 'Aston Script', var(--font-accent);
   font-size: 2.8rem;
-  color: var(--text-light);
+  color: #7C2527;
   margin-bottom: 12px;
   font-weight: 400;
 }
@@ -324,7 +333,7 @@ a { text-decoration: none; color: inherit; }
 .hero-date {
   font-family: var(--font-decorative);
   font-size: 1rem;
-  color: var(--gold-light);
+  color: #7C2527;
   letter-spacing: 6px;
   margin-bottom: 40px;
 }
@@ -335,9 +344,9 @@ a { text-decoration: none; color: inherit; }
   justify-content: center;
   width: 40px;
   height: 40px;
-  border: 1px solid rgba(255,255,255,0.5);
+  border: 1px solid #7C2527;
   border-radius: 50%;
-  color: var(--text-light);
+  color: #7C2527;
   font-size: 0.8rem;
   animation: bounceDown 2s infinite;
 }
@@ -356,12 +365,11 @@ a { text-decoration: none; color: inherit; }
 }
 
 .quote-photo {
-  width: 200px;
-  height: 200px;
+  width: 280px;
+  height: 280px;
   margin: 0 auto 32px;
-  border-radius: 50%;
+  border-radius: 20px;
   overflow: hidden;
-  border: 4px solid var(--gold);
   box-shadow: 0 8px 32px rgba(133,54,56,0.15);
   background: var(--bg-cream);
   display: flex;
@@ -426,6 +434,51 @@ a { text-decoration: none; color: inherit; }
 
 .flip-horizontal {
   transform: scaleX(-1);
+}
+
+@keyframes flowerBreeze {
+  0%   { transform: rotate(-3deg) translateY(0); }
+  15%  { transform: rotate(4deg) translateY(-6px); }
+  30%  { transform: rotate(-2deg) translateY(-2px); }
+  45%  { transform: rotate(6deg) translateY(-9px); }
+  60%  { transform: rotate(-5deg) translateY(-4px); }
+  75%  { transform: rotate(2deg) translateY(-3px); }
+  100% { transform: rotate(-3deg) translateY(0); }
+}
+
+.flower-decor {
+  transform-origin: bottom center;
+}
+
+.flower-decor.reveal-element.visible {
+  animation: flowerBreeze 8s ease-in-out 1s infinite;
+}
+
+.flower-left.reveal-element.visible {
+  animation-duration: 7.5s;
+}
+
+.flower-right.reveal-element.visible {
+  animation-duration: 9.5s;
+  animation-delay: 1.4s;
+}
+
+/* Quote section: flowers at top-right & bottom-right, rotated */
+.quote-section .flower-decor {
+  left: auto;
+  right: -15px;
+}
+
+.quote-section .flower-left {
+  top: 25px;
+  bottom: auto;
+  rotate: 180deg;
+}
+
+.quote-section .flower-right {
+  top: auto;
+  bottom: 25px;
+  rotate: 90deg;
 }
 
 /* ==========================================
@@ -524,7 +577,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ==========================================
-   COUNTDOWN SECTION
+   SAVE THE DATE
    ========================================== */
 .countdown-section {
   background: linear-gradient(135deg, var(--bg-dark) 0%, #2c1810 100%);
