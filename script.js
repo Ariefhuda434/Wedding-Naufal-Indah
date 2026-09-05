@@ -189,7 +189,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---------- AMPLOP TOGGLE ---------- */
-  document.getElementById('btn-amplop').addEventListener('click', () => {
+  document.getElementById('btn-amplop').addEventListener('click', (e) => {
+    if (e.target.closest('.amplop-content') || e.target.closest('.btn-copy')) return;
     const content = document.getElementById('amplop-content');
     content.classList.toggle('hidden');
   });
@@ -347,10 +348,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateStats(comments) {
-    const hadir = comments.filter(c => c.attendance === 'Hadir').length;
-    const tidak = comments.filter(c => c.attendance === 'Tidak Hadir').length;
-    document.getElementById('rsvp-hadir').textContent = hadir;
-    document.getElementById('rsvp-tidak').textContent = tidak;
+    // Stats display dihapus; fungsi dijaga agar tetap kompatibel.
+    void comments;
   }
 
   function formatWaktu(input) {
@@ -380,7 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ---------- COPY REKENING ---------- */
 function copyRekening(btn) {
   const card = btn.closest('.bank-card');
-  const number = card.querySelector('.bank-number').textContent;
+  const number = card.querySelector('.bank-number').textContent.replace(/\s/g, '');
   const toast = card.querySelector('.copy-toast');
   navigator.clipboard.writeText(number).then(() => {
     toast.textContent = 'Tersalin.';
